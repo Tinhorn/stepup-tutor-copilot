@@ -88,9 +88,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
       body: CustomScrollView(
         slivers: [
           // Top Navigation Bar
-          SliverToBoxAdapter(
-            child: _buildTopNavBar(isDesktop: isDesktop),
-          ),
+          SliverToBoxAdapter(child: _buildTopNavBar(isDesktop: isDesktop)),
 
           // Hero Section
           SliverToBoxAdapter(
@@ -114,9 +112,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
           ),
 
           // Footer / Attribution
-          SliverToBoxAdapter(
-            child: _buildFooter(),
-          ),
+          SliverToBoxAdapter(child: _buildFooter()),
         ],
       ),
     );
@@ -127,9 +123,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border(
-          bottom: BorderSide(color: AppTheme.border, width: 1),
-        ),
+        border: Border(bottom: BorderSide(color: AppTheme.border, width: 1)),
       ),
       padding: EdgeInsets.symmetric(
         horizontal: isDesktop ? 32 : 16,
@@ -179,9 +173,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
                         children: [
                           Text(
                             'STEP UP',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
+                            style: Theme.of(context).textTheme.titleMedium
                                 ?.copyWith(
                                   fontWeight: FontWeight.w800,
                                   color: AppTheme.primaryNavy,
@@ -200,9 +192,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
                             ),
                             child: Text(
                               'COPILOT',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelSmall
+                              style: Theme.of(context).textTheme.labelSmall
                                   ?.copyWith(
                                     color: AppTheme.skyBlue,
                                     fontWeight: FontWeight.w700,
@@ -215,9 +205,9 @@ class _CopilotScreenState extends State<CopilotScreen> {
                       Text(
                         'AI Session Companion for Volunteer Tutors',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: AppTheme.textMuted,
-                              fontSize: 11,
-                            ),
+                          color: AppTheme.textMuted,
+                          fontSize: 11,
+                        ),
                       ),
                     ],
                   ),
@@ -240,12 +230,12 @@ class _CopilotScreenState extends State<CopilotScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                icon: const Icon(Icons.account_tree_outlined, size: 18),
+                icon: const Icon(Icons.auto_awesome, size: 18),
                 label: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      isDesktop ? 'Architecture & Decisions' : 'Architecture',
+                      isDesktop ? 'Behind the Build' : 'Build Notes',
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
@@ -259,11 +249,11 @@ class _CopilotScreenState extends State<CopilotScreen> {
                           vertical: 1.5,
                         ),
                         decoration: BoxDecoration(
-                          color: AppTheme.amber,
+                          color: AppTheme.skyBlue,
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: const Text(
-                          'Staff Eng',
+                          'Engineering Craft',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 10,
@@ -287,9 +277,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border(
-          bottom: BorderSide(color: AppTheme.border, width: 1),
-        ),
+        border: Border(bottom: BorderSide(color: AppTheme.border, width: 1)),
       ),
       padding: EdgeInsets.symmetric(
         horizontal: isDesktop ? 32 : 20,
@@ -303,7 +291,10 @@ class _CopilotScreenState extends State<CopilotScreen> {
             children: [
               // Badge pill
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
                   color: AppTheme.amberLight,
                   borderRadius: BorderRadius.circular(20),
@@ -323,10 +314,10 @@ class _CopilotScreenState extends State<CopilotScreen> {
                     Text(
                       'Step Up Tutoring • Staff Engineer Technical Portfolio',
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                            color: const Color(0xFFB45309),
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.2,
-                          ),
+                        color: const Color(0xFFB45309),
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 0.2,
+                      ),
                     ),
                   ],
                 ),
@@ -339,9 +330,9 @@ class _CopilotScreenState extends State<CopilotScreen> {
                 'Empower Every Tutoring Moment with AI Guidance',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      fontSize: isDesktop ? 36 : (isTablet ? 28 : 23),
-                      height: 1.2,
-                    ),
+                  fontSize: isDesktop ? 36 : (isTablet ? 28 : 23),
+                  height: 1.2,
+                ),
               ).animate().fadeIn(duration: 500.ms, delay: 100.ms),
 
               const SizedBox(height: 14),
@@ -353,9 +344,9 @@ class _CopilotScreenState extends State<CopilotScreen> {
                   'Instant pedagogical scaffolding and interest-matched interventions for volunteer tutors working with 2nd–6th grade learners. Grounded in the Stanford NSSA high-impact tutoring model.',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: isDesktop ? 15.5 : 14,
-                        color: AppTheme.textSecondary,
-                      ),
+                    fontSize: isDesktop ? 15.5 : 14,
+                    color: AppTheme.textSecondary,
+                  ),
                 ),
               ).animate().fadeIn(duration: 500.ms, delay: 200.ms),
 
@@ -492,7 +483,10 @@ class _CopilotScreenState extends State<CopilotScreen> {
                                 ),
                               ),
                               const SizedBox(width: 8),
-                              const Text('•', style: TextStyle(color: AppTheme.textMuted)),
+                              const Text(
+                                '•',
+                                style: TextStyle(color: AppTheme.textMuted),
+                              ),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
@@ -509,9 +503,8 @@ class _CopilotScreenState extends State<CopilotScreen> {
                           const SizedBox(height: 3),
                           Text(
                             'Click below to synthesize research-backed Stanford NSSA guidance',
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: AppTheme.textMuted,
-                                ),
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(color: AppTheme.textMuted),
                           ),
                         ],
                       ),
@@ -610,10 +603,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
             const SizedBox(height: 4),
             const Text(
               'Aligning Stanford NSSA coaching model with student passion',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppTheme.textMuted,
-              ),
+              style: TextStyle(fontSize: 12, color: AppTheme.textMuted),
             ),
           ],
         ),
@@ -631,9 +621,9 @@ class _CopilotScreenState extends State<CopilotScreen> {
           'Step Up Tutor Copilot • Built for Step Up Tutoring Staff Engineer Review • 2026',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppTheme.textMuted,
-                fontSize: 12,
-              ),
+            color: AppTheme.textMuted,
+            fontSize: 12,
+          ),
         ),
       ),
     );

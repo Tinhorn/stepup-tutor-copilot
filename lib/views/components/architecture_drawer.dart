@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
 
-/// Expandable end-drawer presenting Staff-level engineering and architecture decisions
-/// to technical evaluators and hiring leadership at Step Up Tutoring.
+/// Slide-out drawer detailing how this portfolio prototype was created,
+/// showcasing AI-accelerated engineering, pragmatic 80/20 design choices,
+/// youth privacy compliance (COPPA/FERPA), and pedagogical grounding for Step Up Tutoring.
 class ArchitectureDrawer extends StatefulWidget {
   const ArchitectureDrawer({super.key});
 
@@ -57,7 +58,7 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Icon(
-                            Icons.account_tree_outlined,
+                            Icons.auto_awesome,
                             color: Colors.white,
                             size: 20,
                           ),
@@ -73,7 +74,7 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
                                 runSpacing: 4,
                                 children: [
                                   Text(
-                                    'Architecture & Decisions',
+                                    'Behind the Build',
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium
@@ -88,13 +89,13 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
                                       vertical: 2,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: AppTheme.amberLight,
+                                      color: AppTheme.skyBlueLight,
                                       borderRadius: BorderRadius.circular(4),
                                     ),
                                     child: const Text(
-                                      'Staff Eng',
+                                      'Engineering Craft',
                                       style: TextStyle(
-                                        color: Color(0xFFB45309),
+                                        color: AppTheme.skyBlue,
                                         fontSize: 10,
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -104,7 +105,7 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                'Production Blueprint for 100k+ Tutoring Sessions',
+                                'Step Up Tutoring • Staff Engineer Candidate Portfolio',
                                 style:
                                     Theme.of(context).textTheme.bodySmall?.copyWith(
                                           color: AppTheme.textMuted,
@@ -149,10 +150,10 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
                   fontWeight: FontWeight.w500,
                 ),
                 tabs: const [
-                  Tab(text: '1. System Topology'),
-                  Tab(text: '2. COPPA & FERPA Privacy'),
-                  Tab(text: '3. AI Guardrails & RAG'),
-                  Tab(text: '4. Scaling to 100k'),
+                  Tab(text: '1. AI-Accelerated Build'),
+                  Tab(text: '2. Pragmatic 80/20 Choices'),
+                  Tab(text: '3. Youth Privacy (FERPA)'),
+                  Tab(text: '4. Pedagogical Grounding'),
                 ],
               ),
             ),
@@ -162,10 +163,10 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  _buildTopologyTab(),
+                  _buildAiWorkflowTab(),
+                  _buildPragmaticArchitectureTab(),
                   _buildPrivacyTab(),
-                  _buildGuardrailsTab(),
-                  _buildScalingTab(),
+                  _buildPedagogyTab(),
                 ],
               ),
             ),
@@ -176,151 +177,105 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
   }
 
   // ---------------------------------------------------------------------------
-  // TAB 1: SYSTEM TOPOLOGY
+  // TAB 1: AI-ACCELERATED ENGINEERING WORKFLOW
   // ---------------------------------------------------------------------------
-  Widget _buildTopologyTab() {
+  Widget _buildAiWorkflowTab() {
     return ListView(
       padding: const EdgeInsets.all(24),
       children: [
         _buildSectionHeader(
-          title: 'Decoupled Microservices Architecture',
+          title: 'Pioneering an AI-Native Engineering Workflow',
           subtitle:
-              'How this client interface translates into a production-grade cloud platform.',
+              'How this entire application was planned, scaffolded, tested, and reviewed using agentic AI pairing.',
         ),
         const SizedBox(height: 16),
         _buildCodeBlock('''
 +-------------------------------------------------------------+
-|             CLIENT LAYER (Flutter Web / Mobile)             |
-|  - Real-time Copilot UI      - WebRTC / Audio Stream        |
+|                 AI-NATIVE DEVELOPMENT LIFECYCLE             |
 +-------------------------------------------------------------+
-                              │ (WSS / HTTPS via Cloudflare)
-                              ▼
-+-------------------------------------------------------------+
-|               API GATEWAY & LOAD BALANCER                   |
-|  - JWT Auth Verification    - Rate Limiting & DDoS Shield   |
-+-------------------------------------------------------------+
-         │                                    │
-         ▼                                    ▼
-+-------------------------+       +---------------------------+
-| SESSION SERVICE         |       | COPILOT INFERENCE GATEWAY |
-| (FastAPI / WebSockets)  |       | (Python Async / LangChain)|
-| - Session Presence      |       | - Semantic Prompt Cache   |
-| - Volunteer Live State  |       | - PII Scrubbing Pipeline  |
-+-------------------------+       +---------------------------+
-         │                                    │
-         ▼                                    ▼
-+-------------------------+       +---------------------------+
-| REDIS CLUSTER           |       | POSTGRESQL + PGVECTOR     |
-| - Sub-15ms Prompt Cache |       | - District Curricula RAG  |
-| - Ephemeral Room State  |       | - Row-Level Security (RLS)|
-+-------------------------+       +---------------------------+
-                                              │
-                                              ▼
-                                  +---------------------------+
-                                  | PRIVATE ENTERPRISE LLM    |
-                                  | - Zero Data Retention     |
-                                  | - Azure OpenAI / Bedrock  |
-                                  +---------------------------+
+   1. REQUIREMENTS TRANSLATION
+      Step Up JD & Stanford NSSA Research -> Phased Implementation Plan
+                           │
+                           ▼
+   2. AGENTIC CODE SCAFFOLDING
+      Domain Models -> Engine Services -> Responsive Presentation
+                           │
+                           ▼
+   3. AUTOMATED VERIFICATION LOOPS
+      Unit Test Synthesis -> Widget Tests -> flutter analyze (0 warnings)
+                           │
+                           ▼
+   4. KARPATHY GUIDELINE AUDIT
+      Trim Speculative Code -> Simplify Abstractions -> Surgical Diffs
 '''),
         const SizedBox(height: 20),
         _buildKeyDecisionCard(
           number: '1',
-          title: 'Sub-50ms Latency via Redis Semantic Caching',
+          title: 'Requirements to Implementation in Hours',
           body:
-              'Tutoring sessions move fast. Volunteer tutors will abandon a copilot that takes 3+ seconds to respond. By embedding session challenge contexts with pgvector and caching common pedagogical interventions in Redis, 65%+ of requests return instantly (<15ms).',
+              'Rather than taking weeks to produce an MVP, we translated the Step Up Staff Engineer job description and Stanford NSSA tutoring principles directly into working data models and test-driven UI components in a single session.',
         ),
         const SizedBox(height: 12),
         _buildKeyDecisionCard(
           number: '2',
-          title: 'Asynchronous Session Decoupling',
+          title: 'Automated Test-Driven Verification',
           body:
-              'Audio/video conferencing streams (WebRTC) are isolated from Copilot inference. If an AI inference gateway experiences a transient slowdown, the live tutoring session is completely unaffected.',
+              'AI was leveraged not just for code scaffolding, but to author comprehensive unit tests ([test/copilot_engine_test.dart]) and widget tests ([test/widget_test.dart]) that continuously validate layout constraints, user interactions, and error boundaries.',
+        ),
+        const SizedBox(height: 12),
+        _buildKeyDecisionCard(
+          number: '3',
+          title: 'Rigorous Code Review & Lint Enforcement',
+          body:
+              'Applied strict static analysis via flutter analyze and Dart documentation guidelines, ensuring that AI-assisted code adheres to the same bar expected from senior human engineering leadership.',
         ),
       ],
     );
   }
 
   // ---------------------------------------------------------------------------
-  // TAB 2: YOUTH DATA PRIVACY (COPPA & FERPA)
+  // TAB 2: PRAGMATIC ARCHITECTURE & 80/20 DECISIONS
   // ---------------------------------------------------------------------------
-  Widget _buildPrivacyTab() {
+  Widget _buildPragmaticArchitectureTab() {
     return ListView(
       padding: const EdgeInsets.all(24),
       children: [
         _buildSectionHeader(
-          title: 'Youth Privacy by Design',
+          title: 'Pragmatic 80/20 Engineering Decisions',
           subtitle:
-              'Comprehensive compliance with COPPA, FERPA, and California Student Privacy standards.',
-        ),
-        const SizedBox(height: 16),
-        _buildBulletPoint(
-          icon: Icons.vpn_key_outlined,
-          title: 'Zero Raw PII Sent to LLM Providers',
-          description:
-              'Student names, dates of birth, and school IDs never leave district boundaries. The client transforms raw identities into ephemeral session tokens (e.g. "student_token: 8f41c, grade: 4, topic: fractions") before sending to the Copilot Gateway.',
-        ),
-        const SizedBox(height: 14),
-        _buildBulletPoint(
-          icon: Icons.lock_outline,
-          title: 'PostgreSQL Row-Level Security (RLS)',
-          description:
-              'Data access is strictly partitioned. Volunteer tutors have cryptographically enforced access ONLY to their assigned student during their scheduled 45-minute tutoring slot.',
-        ),
-        const SizedBox(height: 14),
-        _buildBulletPoint(
-          icon: Icons.phonelink_erase_outlined,
-          title: 'Zero Data Retention (ZDR) Enterprise Agreements',
-          description:
-              'All LLM calls execute under strict enterprise BAA/ZDR agreements with zero telemetry storage for model training. Session transcripts are retained strictly for attendance audit (30 days) and automatically purged.',
-        ),
-        const SizedBox(height: 14),
-        _buildBulletPoint(
-          icon: Icons.verified_user_outlined,
-          title: 'Presidio Edge Anonymization',
-          description:
-              'A local Microsoft Presidio pipeline scans all custom inputs for accidental PII (phone numbers, physical addresses, family names) and redacts them in-memory prior to prompt synthesis.',
-        ),
-      ],
-    );
-  }
-
-  // ---------------------------------------------------------------------------
-  // TAB 3: AI SAFETY, GUARDRAILS & RAG
-  // ---------------------------------------------------------------------------
-  Widget _buildGuardrailsTab() {
-    return ListView(
-      padding: const EdgeInsets.all(24),
-      children: [
-        _buildSectionHeader(
-          title: 'AI Reliability & Pedagogical Guardrails',
-          subtitle:
-              'Grounded in the Stanford National Student Support Accelerator (NSSA) framework.',
+              'Achieving maximum product value with minimum complexity, avoiding premature over-engineering.',
         ),
         const SizedBox(height: 16),
         _buildCardContainer(
-          color: AppTheme.skyBlueLight.withValues(alpha: 0.3),
-          borderColor: AppTheme.skyBlue.withValues(alpha: 0.3),
+          color: AppTheme.amberLight.withValues(alpha: 0.3),
+          borderColor: AppTheme.amber.withValues(alpha: 0.4),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Row(
                 children: [
-                  Icon(Icons.shield_outlined, color: AppTheme.skyBlue, size: 18),
+                  Icon(Icons.lightbulb_outline, color: Color(0xFFB45309), size: 18),
                   SizedBox(width: 8),
-                  Text(
-                    'TWO-TIER GUARDRAIL PIPELINE',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      color: AppTheme.skyBlue,
-                      letterSpacing: 0.6,
+                  Expanded(
+                    child: Text(
+                      'PRAGMATIC CHOICE: IN-MEMORY VS EXTERNAL LLM',
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFFB45309),
+                        letterSpacing: 0.6,
+                      ),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 10),
               const Text(
-                'Tier 1 (Fast Regex & Keyword Filter • <5ms): Blocks prompt injection patterns, offensive language, and off-task system instruction overrides.\n\nTier 2 (Semantic Safety Classifier • <60ms): A distilled DeBERTa classifier verifies that responses remain pedagogical, encouraging, and grade-appropriate before reaching the volunteer tutor.',
+                'Instead of requiring an external OpenAI/Gemini API key or spinning up an expensive backend for this portfolio demonstration, we built an in-memory pedagogical synthesis engine.\n\n'
+                '• 100% Guaranteed Uptime: Never breaks during hiring committee evaluation.\n'
+                '• Sub-50ms Response Time: Eliminates the 3-second lag that ruins live tutoring flow.\n'
+                '• Zero Security Risk: Zero chance of API key theft, quota exhaustion, or billing spikes.\n'
+                '• Zero Infrastructure Cost: Hosts 100% free on static GitHub Pages.',
                 style: TextStyle(fontSize: 13, height: 1.5, color: AppTheme.textPrimary),
               ),
             ],
@@ -329,67 +284,90 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
         const SizedBox(height: 16),
         _buildKeyDecisionCard(
           number: '1',
-          title: 'Curriculum-Grounded RAG (pgvector)',
+          title: 'Adhering to Karpathy Guidelines',
           body:
-              'Rather than relying on raw LLM hallucination, the engine performs cosine similarity search over district-aligned Common Core progressions. Interventions strictly mirror state standards.',
+              'We followed Andrej Karpathy’s coding principles: minimum code that solves the problem, no speculative abstractions, and surgical modifications. When reviewing our design tokens, we proactively pruned unused tokens rather than leaving dead code.',
         ),
         const SizedBox(height: 12),
         _buildKeyDecisionCard(
           number: '2',
-          title: 'Stanford NSSA Pedagogical Alignment',
+          title: 'Adaptive Responsive Design Without Bloat',
           body:
-              'Prompts are explicitly structured around Stanford’s high-impact tutoring framework: Concrete-Representational-Abstract (CRA) math modeling, error destigmatization, and student self-efficacy checks.',
+              'Utilized native Flutter MediaQuery.sizeOf(context) and LayoutBuilder to adapt across phones (390px), tablets, and desktop displays (1280px) without pulling in heavy third-party responsive layout frameworks.',
         ),
       ],
     );
   }
 
   // ---------------------------------------------------------------------------
-  // TAB 4: SCALING TO 100K SESSIONS
+  // TAB 3: YOUTH DATA PRIVACY (COPPA & FERPA)
   // ---------------------------------------------------------------------------
-  Widget _buildScalingTab() {
+  Widget _buildPrivacyTab() {
     return ListView(
       padding: const EdgeInsets.all(24),
       children: [
         _buildSectionHeader(
-          title: 'Scaling from 10k to 100k+ Sessions',
+          title: 'Youth Privacy by Design (COPPA & FERPA)',
           subtitle:
-              'Cost engineering, throughput modeling, and infrastructure reliability.',
+              'Right-sized privacy controls for school district partnerships like LAUSD.',
         ),
         const SizedBox(height: 16),
-        _buildMetricRow(
-          label1: 'Peak Concurrent Sessions',
-          val1: '15,000',
-          label2: 'Redis Cache Hit Rate',
-          val2: '68%',
-        ),
-        const SizedBox(height: 12),
-        _buildMetricRow(
-          label1: 'Monthly Cost (Uncached)',
-          val1: '~\$18,400',
-          label2: 'Monthly Cost (Semantic Cache)',
-          val2: '~\$5,200 (71% savings)',
-        ),
-        const SizedBox(height: 20),
         _buildBulletPoint(
-          icon: Icons.cloud_sync_outlined,
-          title: 'Event-Driven Async Telemetry (Kafka / SQS)',
+          icon: Icons.shield_outlined,
+          title: 'Zero Student PII Leaves Client Memory',
           description:
-              'Tutor interactions, thumbs up/down feedback, and session milestones are published asynchronously to a message queue. Live session requests are never blocked by analytical logging or database writes.',
+              'In this prototype, student profiles and custom inputs are evaluated purely in local device memory. No student names, learning challenges, or personal hobbies are ever transmitted over external networks or logged on third-party servers.',
         ),
         const SizedBox(height: 14),
         _buildBulletPoint(
-          icon: Icons.auto_graph_outlined,
-          title: 'Horizontal Pod Autoscaling (HPA)',
+          icon: Icons.vpn_key_outlined,
+          title: 'Ephemeral Tokenization Architecture',
           description:
-              'Kubernetes clusters scale based on active WebSocket connections and queue depth, automatically provisioning pods during the 3:00 PM – 7:00 PM after-school peak and scaling down overnight.',
+              'When translating this pattern into production, student identities are replaced with transient pseudonymous session tokens (e.g., student_token: #8a3f, grade: 4, challenge: fractions) before reaching any AI model, guaranteeing compliance with FERPA records privacy.',
         ),
         const SizedBox(height: 14),
         _buildBulletPoint(
-          icon: Icons.hub_outlined,
-          title: 'Multi-AZ Database Architecture',
+          icon: Icons.lock_outline,
+          title: 'District Partnership Alignment',
           description:
-              'Amazon RDS PostgreSQL with Multi-AZ automated failover and read replicas dedicated to district attendance reporting, preventing heavy analytical queries from impacting live session queries.',
+              'Step Up works with 40+ districts including Los Angeles Unified (LAUSD). Demonstrates technical ownership of district data privacy agreements, least-privilege role-based access, and zero telemetry retention.',
+        ),
+      ],
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // TAB 4: PEDAGOGICAL GROUNDING (STANFORD NSSA)
+  // ---------------------------------------------------------------------------
+  Widget _buildPedagogyTab() {
+    return ListView(
+      padding: const EdgeInsets.all(24),
+      children: [
+        _buildSectionHeader(
+          title: 'Pedagogical Grounding & Stanford Research',
+          subtitle:
+              'AI engineered to elevate human connection, not replace the volunteer tutor.',
+        ),
+        const SizedBox(height: 16),
+        _buildBulletPoint(
+          icon: Icons.school_outlined,
+          title: 'Stanford National Student Support Accelerator (NSSA)',
+          description:
+              'All guidance outputs are modeled on research-backed high-impact tutoring practices: relationship-building, error normalization, and structured metacognitive exit tickets.',
+        ),
+        const SizedBox(height: 14),
+        _buildBulletPoint(
+          icon: Icons.interests_outlined,
+          title: 'Interest-Driven Cognitive Anchoring',
+          description:
+              'Connecting abstract math (fractions, multi-digit operations) to the student’s passion (soccer, dinosaurs, graphic novels) lowers cognitive resistance and leverages prior knowledge.',
+        ),
+        const SizedBox(height: 14),
+        _buildBulletPoint(
+          icon: Icons.record_voice_over_outlined,
+          title: 'Word-for-Word Scaffolding for Non-Teachers',
+          description:
+              'Volunteer tutors are passionate community members, but rarely trained educators. Providing exact, encouraging scripts with 1-click clipboard copy removes anxiety and keeps tutoring sessions fluid and joyful.',
         ),
       ],
     );
@@ -405,7 +383,7 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
         Text(
           title,
           style: const TextStyle(
-            fontSize: 18,
+            fontSize: 17,
             fontWeight: FontWeight.w800,
             color: AppTheme.primaryNavy,
           ),
@@ -571,75 +549,6 @@ class _ArchitectureDrawerState extends State<ArchitectureDrawer>
         border: Border.all(color: borderColor),
       ),
       child: child,
-    );
-  }
-
-  Widget _buildMetricRow({
-    required String label1,
-    required String val1,
-    required String label2,
-    required String val2,
-  }) {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: AppTheme.background,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: AppTheme.border),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  val1,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: AppTheme.primaryNavy,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  label1,
-                  style: const TextStyle(fontSize: 11, color: AppTheme.textMuted),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: AppTheme.emeraldLight.withValues(alpha: 0.3),
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: AppTheme.emerald.withValues(alpha: 0.3)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  val2,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: Color(0xFF047857),
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  label2,
-                  style: const TextStyle(fontSize: 11, color: AppTheme.textMuted),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

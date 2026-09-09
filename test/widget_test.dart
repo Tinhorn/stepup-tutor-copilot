@@ -36,20 +36,25 @@ void main() {
     expect(find.text('EXACT TUTOR SCRIPT'), findsOneWidget);
     expect(find.text('Copy'), findsOneWidget);
 
-    // Verify opening Architecture & Decisions Drawer
-    await tester.tap(find.text('Architecture & Decisions'));
+    // Verify opening Behind the Build Drawer
+    await tester.tap(find.text('Behind the Build'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Production Blueprint for 100k+ Tutoring Sessions'),
+    expect(find.text('Step Up Tutoring • Staff Engineer Candidate Portfolio'),
         findsOneWidget);
-    expect(find.text('1. System Topology'), findsOneWidget);
-    expect(find.text('2. COPPA & FERPA Privacy'), findsOneWidget);
-    expect(find.text('3. AI Guardrails & RAG'), findsOneWidget);
-    expect(find.text('4. Scaling to 100k'), findsOneWidget);
+    expect(find.text('1. AI-Accelerated Build'), findsOneWidget);
+    expect(find.text('2. Pragmatic 80/20 Choices'), findsOneWidget);
+    expect(find.text('3. Youth Privacy (FERPA)'), findsOneWidget);
+    expect(find.text('4. Pedagogical Grounding'), findsOneWidget);
 
-    // Verify switching to COPPA tab
-    await tester.tap(find.text('2. COPPA & FERPA Privacy'));
+    // Verify Tab 1 content is visible by default
+    expect(find.text('Pioneering an AI-Native Engineering Workflow'),
+        findsOneWidget);
+
+    // Verify switching to Tab 2 (Pragmatic 80/20 Choices)
+    await tester.tap(find.text('2. Pragmatic 80/20 Choices'));
     await tester.pumpAndSettle();
-    expect(find.text('Zero Raw PII Sent to LLM Providers'), findsOneWidget);
+    expect(find.text('PRAGMATIC CHOICE: IN-MEMORY VS EXTERNAL LLM'),
+        findsOneWidget);
   });
 }
