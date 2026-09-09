@@ -59,7 +59,7 @@ class _GuidanceDisplayState extends State<GuidanceDisplay> {
   @override
   Widget build(BuildContext context) {
     final g = widget.guidance;
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
     final isDesktop = screenWidth >= 1024;
 
     return Container(

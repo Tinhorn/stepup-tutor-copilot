@@ -2,15 +2,31 @@ import 'package:flutter/material.dart';
 
 /// Represents an elementary student profile in Step Up Tutoring.
 class StudentPersona {
+  /// The unique identifier of the persona.
   final String id;
+
+  /// The first name of the student.
   final String name;
+
+  /// The elementary grade level (2 through 6).
   final int grade;
+
+  /// The specific academic subject hurdle or obstacle.
   final String learningChallenge;
+
+  /// The student's personal hobby, passion, or interest.
   final String interest;
+
+  /// An expressive emoji representing the student's passion.
   final String avatarEmoji;
+
+  /// Brand accent color associated with this student's profile.
   final Color accentColor;
+
+  /// Whether this persona was created dynamically by the user.
   final bool isCustom;
 
+  /// Creates a new [StudentPersona] instance.
   const StudentPersona({
     required this.id,
     required this.name,
@@ -22,6 +38,7 @@ class StudentPersona {
     this.isCustom = false,
   });
 
+  /// The human-readable grade level label (e.g., '4th Grade').
   String get gradeLabel {
     switch (grade) {
       case 2:
@@ -39,7 +56,7 @@ class StudentPersona {
     }
   }
 
-  /// Default curated student personas for Step Up Tutoring
+  /// The curated baseline student personas for demonstration.
   static List<StudentPersona> get defaultPersonas => [
         const StudentPersona(
           id: 'maya',

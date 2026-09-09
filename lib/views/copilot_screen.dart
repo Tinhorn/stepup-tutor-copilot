@@ -76,7 +76,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
     final isDesktop = screenWidth >= 1024;
     final isTablet = screenWidth >= 768 && screenWidth < 1024;
 
