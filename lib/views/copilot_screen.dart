@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/student_persona.dart';
 import '../models/tutor_guidance.dart';
 import '../services/copilot_engine.dart';
@@ -73,6 +74,13 @@ class _CopilotScreenState extends State<CopilotScreen> {
     setState(() {
       _selectedMoment = moment;
     });
+  }
+
+  Future<void> _launchGitHub() async {
+    final uri = Uri.parse('https://github.com/Tinhorn/stepup-tutor-copilot');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
   }
 
   @override
@@ -214,56 +222,87 @@ class _CopilotScreenState extends State<CopilotScreen> {
                 ],
               ),
 
-              // Action button to open Architecture & Systems Design panel
-              FilledButton.tonalIcon(
-                onPressed: () {
-                  _scaffoldKey.currentState?.openEndDrawer();
-                },
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppTheme.primaryNavy,
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: isDesktop ? 16 : 12,
-                    vertical: 12,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                icon: const Icon(Icons.auto_awesome, size: 18),
-                label: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      isDesktop ? 'Behind the Build' : 'Build Notes',
+              // Header Action Buttons
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // GitHub repository button
+                  OutlinedButton.icon(
+                    onPressed: _launchGitHub,
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: AppTheme.primaryNavy,
+                      side: const BorderSide(color: AppTheme.border),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isDesktop ? 14 : 10,
+                        vertical: 12,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    icon: const Icon(Icons.code, size: 18),
+                    label: Text(
+                      isDesktop ? 'GitHub Repo' : 'GitHub',
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    if (isDesktop) ...[
-                      const SizedBox(width: 6),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 1.5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppTheme.skyBlue,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: const Text(
-                          'Engineering Craft',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w700,
+                  ),
+                  const SizedBox(width: 8),
+
+                  // Action button to open Architecture & Systems Design panel
+                  FilledButton.tonalIcon(
+                    onPressed: () {
+                      _scaffoldKey.currentState?.openEndDrawer();
+                    },
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppTheme.primaryNavy,
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isDesktop ? 16 : 12,
+                        vertical: 12,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    icon: const Icon(Icons.auto_awesome, size: 18),
+                    label: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          isDesktop ? 'Behind the Build' : 'Build Notes',
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ),
-                    ],
-                  ],
-                ),
+                        if (isDesktop) ...[
+                          const SizedBox(width: 6),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 1.5,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppTheme.skyBlue,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: const Text(
+                              'Engineering Craft',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -599,19 +638,52 @@ class _CopilotScreenState extends State<CopilotScreen> {
     );
   }
 
-  /// Branded footer
+  /// Branded footer with GitHub repository link
   Widget _buildFooter() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-      color: Colors.white,
+      padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 20),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(top: BorderSide(color: AppTheme.border, width: 1)),
+      ),
       child: Center(
-        child: Text(
-          'Step Up Tutor Copilot • Built for Step Up Tutoring Staff Engineer Review • 2026',
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: AppTheme.textMuted,
-            fontSize: 12,
-          ),
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 12,
+          runSpacing: 8,
+          children: [
+            Text(
+              'Step Up Tutor Copilot • Built for Step Up Tutoring Staff Engineer Review',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: AppTheme.textMuted,
+                    fontSize: 12,
+                  ),
+            ),
+            InkWell(
+              onTap: _launchGitHub,
+              borderRadius: BorderRadius.circular(6),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.code, size: 14, color: AppTheme.skyBlue),
+                    const SizedBox(width: 4),
+                    Text(
+                      'View Source on GitHub',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: AppTheme.skyBlue,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

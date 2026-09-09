@@ -15,6 +15,7 @@ void main() {
     // Verify header and hero
     expect(find.text('STEP UP'), findsOneWidget);
     expect(find.text('COPILOT'), findsOneWidget);
+    expect(find.text('GitHub Repo'), findsOneWidget);
     expect(find.text('Empower Every Tutoring Moment with AI Guidance'),
         findsOneWidget);
 
