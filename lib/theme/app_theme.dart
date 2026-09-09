@@ -14,8 +14,6 @@ class AppTheme {
   static const Color amberLight = Color(0xFFFEF3C7);
   static const Color emerald = Color(0xFF10B981);
   static const Color emeraldLight = Color(0xFFD1FAE5);
-  static const Color violet = Color(0xFF6366F1);
-  static const Color violetLight = Color(0xFFEDE9FE);
   static const Color rose = Color(0xFFF43F5E);
 
   // Neutral Colors

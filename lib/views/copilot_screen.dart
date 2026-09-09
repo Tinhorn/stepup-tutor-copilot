@@ -370,18 +370,6 @@ class _CopilotScreenState extends State<CopilotScreen> {
                     color: AppTheme.emerald,
                     bgColor: AppTheme.emeraldLight,
                   ),
-                  _buildPillBadge(
-                    icon: Icons.bolt_outlined,
-                    label: 'Sub-50ms Dynamic Generation',
-                    color: AppTheme.amber,
-                    bgColor: AppTheme.amberLight,
-                  ),
-                  _buildPillBadge(
-                    icon: Icons.layers_outlined,
-                    label: 'Scales to 100k+ Sessions',
-                    color: AppTheme.violet,
-                    bgColor: AppTheme.violetLight,
-                  ),
                 ],
               ).animate().fadeIn(duration: 500.ms, delay: 300.ms),
             ],
