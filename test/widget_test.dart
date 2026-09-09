@@ -35,5 +35,21 @@ void main() {
     expect(find.text('TAILORED ACTIVITY'), findsOneWidget);
     expect(find.text('EXACT TUTOR SCRIPT'), findsOneWidget);
     expect(find.text('Copy'), findsOneWidget);
+
+    // Verify opening Architecture & Decisions Drawer
+    await tester.tap(find.text('Architecture & Decisions'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Production Blueprint for 100k+ Tutoring Sessions'),
+        findsOneWidget);
+    expect(find.text('1. System Topology'), findsOneWidget);
+    expect(find.text('2. COPPA & FERPA Privacy'), findsOneWidget);
+    expect(find.text('3. AI Guardrails & RAG'), findsOneWidget);
+    expect(find.text('4. Scaling to 100k'), findsOneWidget);
+
+    // Verify switching to COPPA tab
+    await tester.tap(find.text('2. COPPA & FERPA Privacy'));
+    await tester.pumpAndSettle();
+    expect(find.text('Zero Raw PII Sent to LLM Providers'), findsOneWidget);
   });
 }

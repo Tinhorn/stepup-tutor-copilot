@@ -4,6 +4,7 @@ import '../models/student_persona.dart';
 import '../models/tutor_guidance.dart';
 import '../services/copilot_engine.dart';
 import '../theme/app_theme.dart';
+import 'components/architecture_drawer.dart';
 import 'components/guidance_display.dart';
 import 'components/moment_selector.dart';
 import 'components/persona_selector.dart';
@@ -83,7 +84,7 @@ class _CopilotScreenState extends State<CopilotScreen> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: AppTheme.background,
-      endDrawer: _buildArchitectureDrawerPlaceholder(),
+      endDrawer: const ArchitectureDrawer(),
       body: CustomScrollView(
         slivers: [
           // Top Navigation Bar
@@ -615,43 +616,6 @@ class _CopilotScreenState extends State<CopilotScreen> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  /// Drawer placeholder ready for Phase 3
-  Widget _buildArchitectureDrawerPlaceholder() {
-    return Drawer(
-      width: 480,
-      backgroundColor: Colors.white,
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'System Architecture',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.close),
-                  ),
-                ],
-              ),
-              const Divider(color: AppTheme.border),
-              const SizedBox(height: 16),
-              Text(
-                'Phase 3 will populate this panel with full Staff-level architecture diagrams, COPPA/FERPA security specifications, and 100k session scale blueprints.',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ],
-          ),
         ),
       ),
     );
