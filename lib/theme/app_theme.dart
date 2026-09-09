@@ -10,7 +10,6 @@ class AppTheme {
   static const Color navySurface = Color(0xFF1E293B);
   static const Color skyBlue = Color(0xFF0284C7);
   static const Color skyBlueLight = Color(0xFFE0F2FE);
-  static const Color skyBlueHover = Color(0xFF0369A1);
   static const Color amber = Color(0xFFF59E0B);
   static const Color amberLight = Color(0xFFFEF3C7);
   static const Color emerald = Color(0xFF10B981);
@@ -18,13 +17,11 @@ class AppTheme {
   static const Color violet = Color(0xFF6366F1);
   static const Color violetLight = Color(0xFFEDE9FE);
   static const Color rose = Color(0xFFF43F5E);
-  static const Color roseLight = Color(0xFFFFE4E6);
 
   // Neutral Colors
   static const Color background = Color(0xFFF8FAFC);
   static const Color surface = Colors.white;
   static const Color border = Color(0xFFE2E8F0);
-  static const Color borderLight = Color(0xFFF1F5F9);
   static const Color textPrimary = Color(0xFF0F172A);
   static const Color textSecondary = Color(0xFF475569);
   static const Color textMuted = Color(0xFF94A3B8);
@@ -47,14 +44,6 @@ class AppTheme {
         BoxShadow(
           color: skyBlue.withValues(alpha: 0.12),
           blurRadius: 20,
-          offset: const Offset(0, 8),
-        ),
-      ];
-
-  static List<BoxShadow> get glowShadow => [
-        BoxShadow(
-          color: skyBlue.withValues(alpha: 0.25),
-          blurRadius: 24,
           offset: const Offset(0, 8),
         ),
       ];
